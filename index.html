@@ -47,7 +47,7 @@
           <form>
             <div class="form-group">
               <label>Task Description</label>
-              <input type="text" class="form-control" placeholder="Some important task" ng-model="newTsk.task"/>
+              <input type="text" class="form-control" placeholder="Some important task" ng-model="newTask.task"/>
             </div>
             <div class="form-group">
               <label>Due Date</label>              
@@ -61,7 +61,7 @@
               <label>Location</label>              
               <input type="text" class="form-control" placeholder="My house" ng-model="newTask.location"/>
             </div>       
-          <div class="form-group">
+            <div class="form-group">
               <label>Urgency</label>              
               <input type="text" class="form-control" placeholder="Low, medium, high" ng-model="newTask.urgency"/>
             </div>          
@@ -69,6 +69,7 @@
               <label>Dependencies</label>              
               <input type="text" class="form-control" placeholder="Sword, cat, airplane" ng-model="newTask.dependencies"/>
             </div>
+            <button class="btn btn-default" ng-click="addNewItem()">Submit</button>
           </form>
         </div>
       </div>
