@@ -1,2 +1,12 @@
 body {
-  background-color: bisque; }
+  background-color: bisque;
+  color: white;
+  font-family: 'Poppins', sans-serif; }
+
+.main-container {
+  border: 2px dashed white; }
+
+h1 {
+  color: #B5CEED;
+  font-weight: 700;
+  text-align: center; }
