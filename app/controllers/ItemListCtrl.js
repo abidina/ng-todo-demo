@@ -1,8 +1,4 @@
-app.controller("TodoCtrl", function($scope) {
-  $scope.welcome = "hello";
-  $scope.showListView = true;
-  $scope.task= "";
-  $scope.newTask = {};
+app.controller("ItemListCtrl", function($scope) {
 
   $scope.items= [
     {
@@ -36,21 +32,4 @@ app.controller("TodoCtrl", function($scope) {
       dependencies: ["hammock, cat, pillow, blanket"]
     }
   ];
-
-  $scope.newItem = function() {
-    console.log("you clicked new item");
-    $scope.showListView = false;
-  };
-
-  $scope.allItem = function() {
-    console.log("you clicked all item");
-    $scope.showListView = true;
-  };
-
-  $scope.addNewItem = function(){
-    $scope.newTask.isCompleted = false;
-    $scope.newTask.id = $scope.items.length;
-    $scope.items.push($scope.newTask);
-    $scope.newTask = "";
-  };
 });

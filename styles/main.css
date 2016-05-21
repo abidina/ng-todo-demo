@@ -1,14 +1,14 @@
 body {
-  background-color: #FFECF1;
-  color: white;
+  background-color: #FFEAEA;
+  color: #B5CEED;
   font-family: 'Poppins', sans-serif;
   font-size: 2em; }
 
 .main-container {
-  border: 2px dashed white; }
+  border: 2px dashed #B5CEED; }
 
 h1 {
-  color: #B5CEED;
+  color: white;
   font-weight: 700;
   text-align: center; }
 
@@ -16,9 +16,12 @@ label {
   font-weight: 500; }
 
 input {
-  color: #B5CEED; }
+  color: white; }
 
 .panel {
   color: #B5CEED;
   border: none;
   font-weight: 500; }
+
+.input-group {
+  margin-bottom: 3%; }

@@ -1,9 +1,5 @@
-app.controller("TodoCtrl", function($scope) {
-  $scope.welcome = "hello";
-  $scope.showListView = true;
-  $scope.task= "";
+app.controller("ItemNewCtrl", function($scope) {
   $scope.newTask = {};
-
   $scope.items= [
     {
       id: 0,
@@ -37,15 +33,6 @@ app.controller("TodoCtrl", function($scope) {
     }
   ];
 
-  $scope.newItem = function() {
-    console.log("you clicked new item");
-    $scope.showListView = false;
-  };
-
-  $scope.allItem = function() {
-    console.log("you clicked all item");
-    $scope.showListView = true;
-  };
 
   $scope.addNewItem = function(){
     $scope.newTask.isCompleted = false;
