@@ -1,5 +1,3 @@
-// console.log("hello");
-
 var app = angular.module("TodoApp", []);
 
 app.controller("NavCtrl", function($scope) {
@@ -8,7 +6,7 @@ app.controller("NavCtrl", function($scope) {
 
 app.controller("TodoCtrl", function($scope) {
   $scope.welcome = "hello";
-  $scope.showListView = false;
+  $scope.showListView = true;
   $scope.task= "";
   $scope.newTask = {};
 
@@ -59,7 +57,6 @@ app.controller("TodoCtrl", function($scope) {
     $scope.newTask.isCompleted = false;
     $scope.newTask.id = $scope.items.length;
     $scope.items.push($scope.newTask);
-    console.log("tasks", $scope.items);
     $scope.newTask = "";
   };
 });
