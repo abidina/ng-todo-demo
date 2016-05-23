@@ -26,6 +26,15 @@ label {
 input {
   color: $textBackground;
 }
+
+.navbar {
+  li{ 
+    a {
+      color: $textColor;
+    }
+  }
+}
+
 .panel {
   color: $textColor;
   border: none;

@@ -18,6 +18,9 @@ label {
 input {
   color: white; }
 
+.navbar li a {
+  color: #B5CEED; }
+
 .panel {
   color: #B5CEED;
   border: none;
