@@ -10,7 +10,7 @@ app.config(function($routeProvider) {
       templateUrl:'partials/item-new.html',
       controller:'ItemNewCtrl'
     }).
-    when('/items/details', {
+    when('/items/:itemId', { // (won't work until firebase fixed) : tells angular that something will fill in there
       templateUrl:'partials/item-details.html',
       controller:'ItemViewCtrl'
     }).

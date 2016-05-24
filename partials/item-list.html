@@ -16,7 +16,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
       <div class="col-xs-1"><input type="checkbox" name=""/></div>
-        <div class="col-xs-6">{{thingy.task}}</div>
+        <div class="col-xs-6"><a ng-href="#/items/{{things.id}}">{{thingy.task}}</a></div> <!-- doesn't work because you can't create a firebase id yet -->
         <div class="col-xs-2">{{thingy.dueDate}}</div>
         <div class="col-xs-1">{{thingy.assignedTo}}</div>
         <div class="col-xs-1">{{thingy.location}}</div>
