@@ -1,35 +1,16 @@
-app.controller("ItemListCtrl", function($scope) {
+app.controller("ItemListCtrl", function($scope, $http) {
+  $scope.items= [];
 
-  $scope.items= [
-    {
-      id: 0,
-      task: "mow the lawn",
-      isCompleted: true,
-      dueDate: "12/5/17",
-      assignedTo: "greg",
-      location: "Zoe's house",
-      urgency: "low",
-      dependencies: ["sunshine, clippers, water, hat, headphones"]
-    },
-    {
-      id: 1,
-      task: "grade quizzes",
-      isCompleted: false,
-      dueDate: "12/5/15",
-      assignedTo: "joe",
-      location: "NSS",
-      urgency: "high",
-      dependencies: ["tissues, wifi, vodka"]
-    },  
-    {
-      id: 2,
-      task: "take a nap",
-      isCompleted: false,
-      dueDate: "5/21/16",
-      assignedTo: "zoe",
-      location: "Zoe's house",
-      urgency: "medium",
-      dependencies: ["hammock, cat, pillow, blanket"]
-    }
-  ];
+  $http.get("./data/items.json") // <-- http.get vs. $.ajax(method:GET); works bc this is being called from index.html (so you don't have to move out of any folders)
+    .success(function(itemObject) {
+      var itemCollection = itemObject.items;
+
+      Object.keys(itemCollection).forEach(function(key) { // <-- returns an array of all keys in the object; by putting (key) in parentheses, you store it
+        itemCollection[key].id=key;
+        $scope.items.push(itemCollection[key]); //<-- this grabs the item you're looping through and gives it an id & pushes it into an array
+      });
+      
+
+    });
+
 });

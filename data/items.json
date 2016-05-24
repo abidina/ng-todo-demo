@@ -1,31 +1,31 @@
 {
   "items": {
-      "item1": {
+      "item0": {
         "task": "mow the lawn",
         "isCompleted": true,
         "dueDate": "12/5/17",
         "assignedTo": "greg",
         "location": "Zoe's house",
         "urgency": "low",
-        "dependencies": ["sunshine, clippers, water, hat, headphones"]
+        "dependencies": "sunshine, clippers, water, hat, headphones"
       },
-      "item2": {
+      "item1": {
         "task": "grade quizzes",
         "isCompleted": false,
         "dueDate": "12/5/15",
         "assignedTo": "joe",
         "location": "NSS",
         "urgency": "high",
-        "dependencies": ["tissues, wifi, vodka"]
+        "dependencies": "tissues, wifi, vodka"
       },  
-      "item3": {
+      "item2": {
         "task": "take a nap",
         "isCompleted": false,
         "dueDate": "5/21/16",
         "assignedTo": "zoe",
         "location": "Zoe's house",
         "urgency": "medium",
-        "dependencies": ["hammock, cat, pillow, blanket"]
+        "dependencies": "hammock, cat, pillow, blanket"
       }
   }
 }    
