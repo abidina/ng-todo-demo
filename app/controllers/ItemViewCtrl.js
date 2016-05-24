@@ -12,7 +12,7 @@ app.controller("ItemViewCtrl", function($scope, $http, $routeParams) {
           
           $scope.selectedItem=$scope.items.filter(function(item) { //filters out the one that's equal to the url you've clicked
             return item.id ===$routeParams.itemId;
-          })[0] //to get first item in array
+          })[0]; //to get first item in array
 
         });
       });

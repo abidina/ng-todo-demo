@@ -1,4 +1,4 @@
-app.controller("ItemListCtrl", function($scope, $http) {
+app.controller("ItemListCtrl", function($scope, $http, $location, itemStorage) {
   $scope.items= [];
   var getItems = function() {
     $http.get("./data/items.json") // <-- http.get vs. $.ajax(method:GET); works bc this is being called from index.html (so you don't have to move out of any folders)
@@ -12,6 +12,10 @@ app.controller("ItemListCtrl", function($scope, $http) {
   };
   
   getItems();
+
+  itemStorage.getItemList().then(function(itemCollection){
+    console.log("item collection from promise", itemCollection);
+  });
 
     $scope.itemDelete= function(itemId) {
       console.log("itemId", itemId);
