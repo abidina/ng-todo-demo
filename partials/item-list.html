@@ -20,7 +20,8 @@
         <div class="col-xs-2">{{thingy.dueDate}}</div>
         <div class="col-xs-1">{{thingy.assignedTo}}</div>
         <div class="col-xs-1">{{thingy.location}}</div>
-        <div class="col-xs-1"><button class="btn btn-danger">X</button></div>
+        <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(thingy.id)">X <!-- insert font awesome trash can here  -->
+        </button></div>
       </div>
     </div>
   </div>
