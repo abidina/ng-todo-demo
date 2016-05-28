@@ -2,8 +2,9 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory) { //$q 
 
   var getItemList = function() {
     var items = [];
+    let user = AuthFactory.getUser();
     return $q(function (resolve, reject) {
-      $http.get(firebaseURL + 'items.json') // <-- http.get vs. $.ajax(method:GET); works bc this is being called from index.html (so you don't have to move out of any folders)
+      $http.get(`${firebaseURL}items.json?orderBy="uid"&equalTo="${user.uid}"`) // <-- http.get vs. $.ajax(method:GET); works bc this is being called from index.html (so you don't have to move out of any folders)
         .success(function(itemObject) {
           var itemCollection = itemObject;
           Object.keys(itemCollection).forEach(function(key) { // <-- returns an array of all keys in the object; by putting (key) in parentheses, you store it
@@ -14,8 +15,7 @@ app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory) { //$q 
         })
         .error(function(error) {
           reject(error);
-        });
-     
+        });     
     });
   };
 
@@ -67,6 +67,7 @@ var getSingleItem = function(itemId){
 };
 
 var updateItem = function(itemId, newItem){
+    let user = AuthFactory.getUser();
     return $q(function(resolve, reject) {
         $http.put(
             firebaseURL + "items/" + itemId + ".json",
@@ -77,7 +78,8 @@ var updateItem = function(itemId, newItem){
                 isCompleted: newItem.isCompleted,
                 location: newItem.location,
                 task: newItem.task,
-                urgency: newItem.urgency
+                urgency: newItem.urgency,
+                user: user.uid
             })
         )
         .success(
