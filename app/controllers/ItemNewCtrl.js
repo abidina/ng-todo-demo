@@ -9,7 +9,7 @@ app.controller("ItemNewCtrl", function($scope, $http, $location, itemStorage) {
     isCompleted:false,
     location:"",
     task:"", 
-    urgency:""
+    urgency:"", 
   };
 
 

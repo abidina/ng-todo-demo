@@ -1,4 +1,4 @@
-app.factory("itemStorage", function($q, $http, firebaseURL) { //$q is ng's promise library, $http bc it's the calls to firebase
+app.factory("itemStorage", function($q, $http, firebaseURL, AuthFactory) { //$q is ng's promise library, $http bc it's the calls to firebase
 
   var getItemList = function() {
     var items = [];
@@ -30,6 +30,8 @@ var deleteItem = function(itemId){
     };
 
 var postNewItem = function(newItem){
+    let user = AuthFactory.getUser();
+    console.log("user", user);
     return $q(function(resolve, reject) {
         $http.post(
             firebaseURL + "items.json",
@@ -40,7 +42,8 @@ var postNewItem = function(newItem){
                 isCompleted: newItem.isCompleted,
                 location: newItem.location,
                 task: newItem.task,
-                urgency: newItem.urgency
+                urgency: newItem.urgency,
+                uid: user.uid
             })
         )
         .success(
