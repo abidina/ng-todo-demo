@@ -1,23 +1,63 @@
 var app = angular.module("TodoApp", ["ngRoute"])
   .constant("firebaseURL", "https://ng-todo-list16.firebaseio.com/");
 
+let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
+  if (AuthFactory.isAuthenticated()) {
+    console.log("User is authenticated, resolve route promise");
+    resolve();
+  } else {
+    console.log("User is not authenticated, reject route promise");
+    reject();
+  }
+})
+
 app.config(function($routeProvider) {
   $routeProvider.
+    when('/', {
+      templateUrl:'partials/item-list.html',
+      controller:'ItemListCtrl',
+      resolve: {isAuth}
+    }).    
     when('/items/list', {
       templateUrl:'partials/item-list.html',
-      controller:'ItemListCtrl'
+      controller:'ItemListCtrl',
+      resolve: {isAuth}
     }).
     when('/items/new', {
       templateUrl:'partials/item-new.html',
-      controller:'ItemNewCtrl'
+      controller:'ItemNewCtrl',
+      resolve: {isAuth}
     }).
     when('/items/:itemId', { // tells angular that something will fill in there
       templateUrl:'partials/item-details.html',
-      controller:'ItemViewCtrl'
+      controller:'ItemViewCtrl',
+      resolve: {isAuth}
     }).
-    when('/items/:itemId/edit', { // tells angular that something will fill in there
+    when('/items/:itemId/edit', {
       templateUrl:'partials/item-new.html',
-      controller:'ItemEditCtrl'
+      controller:'ItemEditCtrl',
+      resolve: {isAuth}
+    }).    
+    when('/login', { 
+      templateUrl:'partials/login.html',
+      controller:'LoginCtrl'
+    }).    
+    when('/logout', { 
+      templateUrl:'partials/login.html',
+      controller:'LoginCtrl'
     }).
-    otherwise('/items/list');
+    otherwise('/');
 });
+
+
+/* .run happens before anything else on the page, even though it's placed @ the bottom */
+
+app.run(($location) => {
+  let todoRef = new Firebase("https://ng-todo-list16.firebaseio.com/");
+
+  todoRef.onAuth((authData => {
+    if (!authData) {
+      $location.path("/login");
+    }
+  }))
+})
