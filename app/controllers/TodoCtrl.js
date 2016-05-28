@@ -38,12 +38,10 @@ app.controller("TodoCtrl", function($scope) {
   ];
 
   $scope.newItem = function() {
-    console.log("you clicked new item");
     $scope.showListView = false;
   };
 
   $scope.allItem = function() {
-    console.log("you clicked all item");
     $scope.showListView = true;
   };
 

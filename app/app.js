@@ -1,4 +1,5 @@
-var app = angular.module("TodoApp", ["ngRoute"]);
+var app = angular.module("TodoApp", ["ngRoute"])
+  .constant("firebaseURL", "https://ng-todo-list16.firebaseio.com/");
 
 app.config(function($routeProvider) {
   $routeProvider.
@@ -10,9 +11,13 @@ app.config(function($routeProvider) {
       templateUrl:'partials/item-new.html',
       controller:'ItemNewCtrl'
     }).
-    when('/items/:itemId', { // (won't work until firebase fixed) : tells angular that something will fill in there
+    when('/items/:itemId', { // tells angular that something will fill in there
       templateUrl:'partials/item-details.html',
       controller:'ItemViewCtrl'
+    }).
+    when('/items/:itemId/edit', { // tells angular that something will fill in there
+      templateUrl:'partials/item-new.html',
+      controller:'ItemEditCtrl'
     }).
     otherwise('/items/list');
 });
