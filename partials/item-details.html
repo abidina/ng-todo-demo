@@ -1,0 +1,10 @@
+<h1>{{selectedItem.task}}</h1>
+
+<a class="btn btn-info" ng-href= firebaseURL + "/items/{{selectedItem.id}}/edit">edit</a>
+
+<h2>Assigned To: {{selectedItem.assignedTo}}</h2>
+<h2>Due Date: {{selectedItem.dueDate}}</h2>
+<h2>Dependencies: {{selectedItem.dependencies}}</h2>
+<h2>Location: {{selectedItem.location}}</h2>
+<h2>Urgency: {{selectedItem.urgency}}</h2>
+<h2>Completed?: {{selectedItem.isCompleted}}</h2>
