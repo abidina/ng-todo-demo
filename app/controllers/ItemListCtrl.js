@@ -13,6 +13,10 @@ app.controller("ItemListCtrl", function($scope, $http, $location, itemStorage) {
       });
     };
 
+    $scope.statusChange = function(thingy) {
+      itemStorage.updateStatus(thingy).then(function(placeholder) {
 
+      });
+    };
 
 });

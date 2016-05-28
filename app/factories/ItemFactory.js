@@ -88,8 +88,31 @@ var updateItem = function(itemId, newItem){
     });
 };
 
+var updateStatus = function(newItem) {
+    return $q(function(resolve, reject) {
+        $http.put(
+            firebaseURL + "items/" + newItem.id + ".json",
+            JSON.stringify({
+                assignedTo: newItem.assignedTo,
+                dependencies: newItem.dependencies,
+                dueDate: newItem.dueDate,
+                isCompleted: newItem.isCompleted,
+                location: newItem.location,
+                task: newItem.task,
+                urgency: newItem.urgency
+            })
+        )
+        .success(
+            function(objectFromFirebase) {
+                resolve(objectFromFirebase);
+            }
+        );
+    });
+};
 
 
-return {updateItem:updateItem, getSingleItem:getSingleItem, getItemList:getItemList, deleteItem:deleteItem, postNewItem:postNewItem};
+
+
+return {updateItem:updateItem, getSingleItem:getSingleItem, getItemList:getItemList, deleteItem:deleteItem, postNewItem:postNewItem, updateStatus:updateStatus};
 
 });

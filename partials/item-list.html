@@ -15,7 +15,7 @@
   <div ng-repeat="thingy in items | filter: searchText | filter: {isCompleted: false}">
     <div class="panel panel-default">
       <div class="panel-body">
-      <div class="col-xs-1"><input type="checkbox" name="" ng-model="thingy.isCompleted"/></div>
+      <div class="col-xs-1"><input type="checkbox" name="" ng-model="thingy.isCompleted" ng-change= "statusChange(thingy)"/></div>
         <div class="col-xs-6"><a ng-href= firebaseURL + "/items/{{things.id}}">{{thingy.task}}</a></div> 
         <div class="col-xs-2">{{thingy.dueDate}}</div>
         <div class="col-xs-1">{{thingy.assignedTo}}</div>
@@ -31,7 +31,7 @@
   <div ng-repeat="thingy in items | filter: {isCompleted: true}">
     <div class="panel panel-default">
       <div class="panel-body">
-      <div class="col-xs-1"><input type="checkbox" name="" ng-model="thingy.isCompleted"/></div>
+      <div class="col-xs-1"><input type="checkbox" name="" ng-model="thingy.isCompleted" ng-change= "statusChange(thingy)"/></div>
         <div class="col-xs-6"><a ng-href= firebaseURL + "/items/{{things.id}}">{{thingy.task}}</a></div> 
         <div class="col-xs-2">{{thingy.dueDate}}</div>
         <div class="col-xs-1">{{thingy.assignedTo}}</div>
